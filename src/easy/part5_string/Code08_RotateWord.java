@@ -13,6 +13,7 @@ public class Code08_RotateWord {
         if (chs == null || chs.length == 0) {
             return;
         }
+
         // 1.先整体逆序
         reverse(chs, 0, chs.length - 1);
         // 2.局部逆序

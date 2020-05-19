@@ -89,7 +89,7 @@ public class Code08_Add2List {
             }
             newHead = new Node(sum);
             // 连接新链
-            newHead.next = pre;
+            newHead.next = pre; // 头插
             pre = newHead;
             // 向后继续
             if (list1 != null) list1 = list1.next;
