@@ -58,7 +58,7 @@ public class Code05_CountString {
     }
 
     public static void main(String[] args) {
-        //System.out.println(getCountString("aaabbadddffc")); //a_3_b_2_a_1_d_3_f_2_c_1
-        System.out.println(getCharAt("a_3", 2));
+//        System.out.println(getCountString("aaabbadddffc")); //a_3_b_2_a_1_d_3_f_2_c_1
+        System.out.println(getCharAt("a_3_b_2_a_1_d_3_f_2_c_1", 5));
     }
 }

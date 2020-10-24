@@ -44,6 +44,36 @@ public class Code07_ReplaceSpace {
         return String.valueOf(chs);
     }
 
+
+    public static String newStr(char[] chars) {
+        if (chars == null || chars.length == 0) {
+            return "";
+        }
+        // 老字符串的实际长度(不一定等于chars的长度)
+        int i = 0;
+        int spaceCount = 0;
+        for (; i < chars.length && chars[i] != 0; i++) {
+            if (chars[i] == ' ') {
+                spaceCount ++;
+            }
+        }
+
+        int newLen = i + 2 * spaceCount;
+        int oldEndIdx = i - 1;
+        int newEndIdx = newLen - 1;
+        for (; oldEndIdx >= 0; oldEndIdx --) {
+            if (chars[oldEndIdx] == ' ') {
+                // replace
+                chars[newEndIdx --] = '0';
+                chars[newEndIdx --] = '2';
+                chars[newEndIdx --] = '%';
+            } else {
+                chars[newEndIdx --] =  chars[oldEndIdx];
+            }
+        }
+        return String.valueOf(chars);
+    }
+
     /**
      * 给定字符数组chas[], 只含有数字字符和"*"字符。现在想把所有的"*"字符挪到chas的左边，数字字符挪到chas的右边。
      * 请完成调整函数。
@@ -66,6 +96,23 @@ public class Code07_ReplaceSpace {
             chas[chasEnd--] = '*';
         }
         return String.valueOf(chas);
+    }
+
+
+    public static String modify2(char[] chars) {
+        if (chars == null || chars.length == 0) {
+            return "";
+        }
+        int numIdx = chars.length - 1;
+        for (int i = chars.length - 1; i >= 0; i --) {
+            if(chars[i] != '*') {
+                chars[numIdx --] = chars[i];
+            }
+        }
+        while (numIdx >= 0) {
+            chars[numIdx --] = '*';
+        }
+        return String.valueOf(chars);
     }
 
     public static void main(String[] args) {

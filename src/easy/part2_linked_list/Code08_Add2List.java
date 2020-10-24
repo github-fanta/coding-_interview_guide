@@ -62,6 +62,7 @@ public class Code08_Add2List {
         return newHead;
     }
 
+
     //方法二：
     public static Node addList2(Node head1, Node head2) {
         if(head1 == null || head2 == null) {
@@ -110,6 +111,7 @@ public class Code08_Add2List {
         }
         return pre;
     }
+
 
     public static void main(String[] args) {
         Node head1 = new Node(9);

@@ -43,7 +43,6 @@ public class Code01_PrintCommonPart {
 		Node head2 = new Node(0);
 		head2.next = new Node(2);
 		head2.next.next = new Node(3);
-
 		printCommonPart(head1, head2);
 	}
 }
