@@ -59,9 +59,31 @@ public class Code04_IsPostArray {
 	    return head;
 	}
 
+	public static Node reConPost(int[] arr) {
+    	if (arr == null || arr.length == 0) {
+    		return null;
+		}
+    	return reconProcess(arr, 0, arr.length - 1);
+	}
+
+	private static Node reconProcess(int[] arr, int start, int end) {
+    	if (start >= end) {
+    		return null;
+		}
+    	int bigStart = start;
+    	while (arr[bigStart] < arr[end]) {
+    		bigStart ++;
+		}
+		Node head = new Node(arr[end]);
+    	head.left = reconProcess(arr, start, bigStart - 1);
+    	head.right = reconProcess(arr, bigStart, end - 1);
+    	return head;
+	}
+
+
 	public static void main(String[] args) {
 		System.out.println(isPostArray(new int[]{1,2,3,4,5,6}));
-		Node head = postArrToBST(new int[]{1,2,3,4,5,6});
-
+		Node head = reConPost(new int[]{1,2,3,4,5,6});
+		int i = 0;
 	}
 }

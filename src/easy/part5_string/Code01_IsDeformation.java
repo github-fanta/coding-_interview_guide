@@ -17,7 +17,7 @@ public class Code01_IsDeformation {
             buckets[c]++;
         }
         for (char c : chs2) {
-            if (++buckets[c] < 0) {
+            if (--buckets[c] < 0) {
                 return false;
             }
         }

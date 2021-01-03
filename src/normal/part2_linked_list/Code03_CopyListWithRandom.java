@@ -57,7 +57,7 @@ public class Code03_CopyListWithRandom {
         // 复制random
         cur = head;
         while (cur != null) {
-            cur.next.rand = cur.rand != null ? cur.rand.next : null;// 你的rand是我的rand的下一个。我的rand有可能是null
+            cur.next.rand = cur.rand != null ? cur.rand.next : null;// 你(新节点)的rand是我的(老链表)rand的下一个。我的rand有可能是null
             cur = cur.next.next;
         }
         //分离新旧链表

@@ -99,10 +99,10 @@ public class Code08_RotateWord {
     public static void main(String[] args) {
         //char[] chs = "pig Loves dog".toCharArray();
         char[] chs = "I'm a student.".toCharArray();
-        rotateWord(chs);
+//        rotateWord(chs);
         System.out.println(String.valueOf(chs));
-        rotate2(chs, 3);
-        System.out.println(String.valueOf(chs));
+//        rotate2(chs, 3);
+//        System.out.println(String.valueOf(chs));
 
     }
 }

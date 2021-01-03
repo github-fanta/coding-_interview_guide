@@ -1,6 +1,9 @@
 package easy.part3_binary_tree;
 
+import sun.awt.image.ImageWatched;
+
 import java.util.ArrayList;
+import java.util.InvalidPropertiesFormatException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -59,7 +62,7 @@ public class Code01_SerializeAndReconstructTree {
 		return node;
 	}
 	
-	
+
 	/**
 	 * 层次序列化
 	 */
@@ -86,13 +89,37 @@ public class Code01_SerializeAndReconstructTree {
 	}
 	
 
+
+	public static String serLevel(Node head) {
+		if (head == null) {
+			return "#!";
+		}
+		StringBuffer sb = new StringBuffer();
+		Queue<Node> queue = new LinkedList<>();
+		queue.offer(head);
+		while (!queue.isEmpty()) {
+			Node poll = queue.poll();
+			if (poll == null) {
+				sb.append("#!");
+				continue;
+			}
+			sb.append(poll.value + "!");
+			queue.offer(poll.left);
+			queue.offer(poll.right);
+		}
+		return sb.toString();
+	}
+
 	/**
 	 * 层次反序列化
 	 */
 	public static Node reconByLevelString(String levelStr) {
 
+		// 字符串变节点
 		Queue<Node> valueQ = getQueueByLevelStr(levelStr);
+		// 连接节点  为什么要再弄一个栈
 		Queue<Node> queue = new LinkedList<Node>();
+		// 把头提前拿出来
 		Node head = valueQ.poll();
 		if (head == null) return null;
 		
@@ -101,8 +128,10 @@ public class Code01_SerializeAndReconstructTree {
 		while(!queue.isEmpty()) {
 			temp = queue.poll();
 			if (temp == null)continue;
+			// --------核心逻辑：连接----------
 			temp.left = valueQ.poll();
 			temp.right = valueQ.poll();
+			// ------------------
 			queue.offer(temp.left);
 			queue.offer(temp.right);
 		}
@@ -122,8 +151,8 @@ public class Code01_SerializeAndReconstructTree {
 		}
 		return valueQ;
 	}
-	
-	
+
+
 	// for test -- print tree
 		public static void printTree(Node head) {
 			System.out.println("Binary Tree:");
@@ -198,14 +227,14 @@ public class Code01_SerializeAndReconstructTree {
 
 			pre = serializeByPre(head);
 			System.out.println("serialize tree by pre-order: " + pre);
-			//head = reconByPreString(pre);
-			//System.out.print("reconstruct tree by pre-order, ");
+			head = reconByPreString(pre);
+			System.out.print("reconstruct tree by pre-order, ");
 			printTree(head);
 
 			level = serializeByLevel(head);
 			System.out.println("serialize tree by level: " + level);
 			head = reconByLevelString(level);
-			System.out.print("reconstruct tree by level, ");
+			System.out.print("新的reconstruct tree by level, ");
 			printTree(head);
 
 			System.out.println("====================================");

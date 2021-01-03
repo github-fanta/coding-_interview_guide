@@ -1,5 +1,7 @@
 package easy.part2_linked_list;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +35,7 @@ public class Code09_RemoveRep1 {
         }
         return head;
     }
+
 
     public static void main(String[] args) {
         Node head = new Node(2);

@@ -2,6 +2,7 @@ package normal.part1_stack_queue;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 滑动窗口最大值数组
@@ -24,9 +25,10 @@ public class Code03_SlidingWindowMaxArray {
     }
     public static void main(String[] args) {
         int[] data = {2,3,4,2,6,2,5,1};
-        ArrayList<Integer> list = getMaxArr(data, 3);
-        for (int i : list) {
+        List<Integer> list1 = getMaxArr(data, 3);
+        for (int i : list1) {
             System.out.print(i+" ");
         }
     }
 }
+

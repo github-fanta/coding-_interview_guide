@@ -66,7 +66,7 @@ public class Code02_ListPartition {
         Node lTail = null;
         Node next = null; //保存下一个结点
         while(head != null) {
-            next = head.next;
+            next = head.next; // 保存next作为剩下的链头
             head.next = null; // 断连，取出head
             if (head.val < pivot) {  //放入small筒中
                 if (sHead == null) {   //若是放入筒中的第一个元素
@@ -96,12 +96,27 @@ public class Code02_ListPartition {
             head = next;
         }
         // 三个桶之间的两次相连
+//        if (sTail != null) {
+//            sTail.next = eHead;
+//            if (eTail == null) eTail = sTail;
+//        }
+//        if (eTail != null) {
+//            eTail.next = lHead;
+//        }
+//        return sHead != null ? sHead : eHead != null ? eHead : lHead;
+
+        // 连接方法2：
+        // 连接1、2两个桶
         if (sTail != null) {
             sTail.next = eHead;
-            if (eTail == null) eTail = sTail;
         }
+        // 连接2、3两个桶  连接第三个桶要注意， 可以从第二个桶连  也可以从第一个桶连过来
         if (eTail != null) {
             eTail.next = lHead;
+        } else {
+            if (sTail != null) {
+                sTail.next = lHead;
+            }
         }
         return sHead != null ? sHead : eHead != null ? eHead : lHead;
     }
@@ -120,8 +135,8 @@ public class Code02_ListPartition {
             System.out.print(temp.val + " ");
             temp = temp.next;
         }
-        //temp = listPartition1(head1, 5);
-        temp = listPartition2(head1, 5);
+//        temp = listPartition1(head1, 5);
+        temp = listPartition2(head1, 3);
         System.out.println();
         while (temp != null) {
             System.out.print(temp.val + " ");
