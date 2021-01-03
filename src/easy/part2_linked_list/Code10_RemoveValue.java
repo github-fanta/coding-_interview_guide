@@ -46,7 +46,7 @@ public class Code10_RemoveValue {
             if (cur.val == num) {
                 pre.next = cur.next;
             }else {
-                // 遍历到的不是num pre就向前
+                // 遍历到的不是num pre才向前
                 pre = cur;
             }
             cur = cur.next;
