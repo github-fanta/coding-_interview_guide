@@ -21,14 +21,19 @@ public class Code03_SortStackByStack {
 		// stack过完后 help从上到下 有小到大 于是倒出来就是答案
 		while(!help.isEmpty()) {
 			stack.push(help.pop());
-			
 		}
 		
+	}
+
+	public static void test(Stack<Integer> stack) {
+		if (stack == null) {
+			return;
+		}
+		new Stack<>();
 	}
 	
 	public static void main(String[] args) {
 		Stack<Integer> stack = new Stack<>();
-		
 		// 测试1000000次数
 		for(int test=0; test < 1000000; test++) {
 			// 随机推入10个0~9的整数
