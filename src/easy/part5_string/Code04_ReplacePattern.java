@@ -9,6 +9,7 @@ package easy.part5_string;
  *
  */
 public class Code04_ReplacePattern {
+    static String str = "hello";
     public static String replacePattern(String str, String from, String to) {
         if (str == null || str.length() == 0 || str.length() < from.length()) {
             return str;
@@ -136,7 +137,14 @@ public class Code04_ReplacePattern {
 
 
     public static void main(String[] args) {
-        System.out.println(replacePattern("abc123abc123abcabc", "abc", "X"));
-        System.out.println(replacePattern2("abc123abc123abcabc", "abc", "X"));
+//        System.out.println(replacePattern("abc123abc123abcabc", "abc", "X"));
+//        System.out.println(replacePattern2("abc123abc123abcabc", "abc", "X"));
+        int j = 0;
+        for (int i = 0; i < 100; i++) {
+            j ++;
+        }
+        Code04_ReplacePattern bean = new Code04_ReplacePattern();
+        bean  = null;
+        bean.toString();
     }
 }
