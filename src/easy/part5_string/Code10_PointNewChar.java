@@ -19,7 +19,7 @@ public class Code10_PointNewChar {
             successiveUpperCharNum++;
         }
         // 统计完成后开始分情况
-        // 1.是奇数个
+        // 1.是奇数个  只有当前是一大一小才会出现奇数个连续大写的字符
         if ((successiveUpperCharNum & 1) == 1) {
             return str.substring(k-1, k+1); // [k-1~k]两个字符 k-1肯定是大写字符
         }

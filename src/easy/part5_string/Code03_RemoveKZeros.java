@@ -22,7 +22,7 @@ public class Code03_RemoveKZeros {
                 // 碰到的不是0 就结算
                 if (eachPatternCount == k) {
                     while (eachPatternCount-- != 0) {
-                        chars[eachPatternStart++] = 0; // 填坑
+                        chars[eachPatternStart++] = '#'; // 填坑
                     }
                 }
                 eachPatternStart = -1; // 从头开始准备
@@ -32,10 +32,10 @@ public class Code03_RemoveKZeros {
         // 结尾再检查
         if (eachPatternCount == k) {
             while (eachPatternCount-- != 0) {
-                chars[eachPatternStart++] = 0;
+                chars[eachPatternStart++] = '#';
             }
         }
-        return String.valueOf(chars);
+        return String.valueOf(chars).replaceAll("#", "");
     }
 
     public static void main(String[] args) {

@@ -17,7 +17,7 @@ public class Code01_IsDeformation {
             buckets[c]++;
         }
         for (char c : chs2) {
-            if (++buckets[c] < 0) {
+            if (--buckets[c] < 0) {
                 return false;
             }
         }
@@ -25,6 +25,6 @@ public class Code01_IsDeformation {
     }
 
     public static void main(String[] args) {
-        System.out.println(isDeformation("a1b1c","ab11c"));
+        System.out.println(isDeformation("a1b1ce","ab11cd"));
     }
 }

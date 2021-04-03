@@ -53,7 +53,7 @@ public class Code04_ReplacePattern {
                 }
                 curStr += charStr[i]; //平台型 收揽
             }
-            // 遇到的不是零 无动于衷 继续往前走
+            // 遇到的是零 无动于衷 继续往前走
         }
 
         // 最后揽收的字符们还没有添加到结果（小心还要结算一次）

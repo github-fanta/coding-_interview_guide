@@ -40,14 +40,14 @@ public class Code05_CountString {
             if (chs[i] == '_') {
                 charStage = !charStage;
             } else if (charStage) {
-                // 2. 下划线后且遇到新字符 结算
+                // 2. 遇到新字符 且是字符阶段 说明当前要读的又是一个新的字符了，刚好结算上个阶段的
                 curIdx += stageNum;
                 if (curIdx > index) return stageChar;
-                // 恢复原位 准备下个阶段
+                // 否则 就恢复原位 从这个字符开始 又是一个新阶段
                 stageNum = 0;
                 stageChar = chs[i];
-            } else if (charStage == false) {
-                // 3. 遇到数字字符
+            } else if (!charStage) {
+                // 3. 在数字阶段遇到字符，这个字符要读的就是一个数字
                 stageNum = stageNum*10 +(chs[i] - '0');
             }
         }
