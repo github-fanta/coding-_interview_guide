@@ -31,7 +31,6 @@ public class Code03_RemoveRatioNode {
         slow.next = slow.next.next;
         return head;
     }
-
     /**
      * 第二题(进阶) 给定链表的头节点head,整数a 和 b ,删除位于a/b处的节点
      */
@@ -42,7 +41,7 @@ public class Code03_RemoveRatioNode {
         int nodeCount = 0;
         Node cur = head;
         while(cur != null) {
-            cur = cur. next;
+            cur = cur.next;
             nodeCount++;
         }
         // 要使得ceil括号中的数字为小数——小数除以小数才是小数 整数除以整数是整数。所以加上double
@@ -59,19 +58,44 @@ public class Code03_RemoveRatioNode {
         }
         return head;
     }
+
+    public static Node removeByRatio1(Node head, int a, int b) {
+        if (a < 1 || a > b) {
+            return head;
+        }
+        int nodeCount = 0;
+        Node cur = head;
+        while (cur != null) {
+            cur = cur.next;
+            nodeCount ++;
+        }
+
+        int removeIdx = (int) Math.ceil((double) (a * nodeCount) / (double) b);
+        if (removeIdx == 1) {
+            return head.next;
+        }
+        if (removeIdx > 1) {
+            cur = head;
+            while (--removeIdx > 1) {
+                cur = cur.next;
+            }
+            cur.next = cur.next.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
-        /*
-        Node head = new Node(0);
-        head.next = new Node(1);
-        head.next.next = new Node(2);
-        head.next.next.next = new Node(3);
-        head.next.next.next.next = new Node(4);
-        Node cur = removeMidNode(head);
-        while(cur != null) {
-           System.out.println(cur.val+"");
-           cur = cur.next;
-       }
-       */
+//        Node head = new Node(0);
+//        head.next = new Node(1);
+//        head.next.next = new Node(2);
+//        head.next.next.next = new Node(3);
+//        head.next.next.next.next = new Node(4);
+//        Node cur = removeMidNode(head);
+//        while(cur != null) {
+//           System.out.println(cur.val+"");
+//           cur = cur.next;
+//       }
+
         // 测试第二题
         Node head = new Node(0);
         head.next = new Node(1);

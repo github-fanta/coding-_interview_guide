@@ -37,8 +37,7 @@ public class Code02_RemoveLastKthNode {
 	    if (k < 0) {
 	    	cur = head;
 	    	// 遍历到删除节点的前一个停下里
-	    	while (k+1 != 0) { 
-	    	   k ++;
+	    	while (++k != 0) {
 	    	   cur = cur.next;
 	    	}
 	    	// 手术割掉
@@ -94,7 +93,7 @@ public class Code02_RemoveLastKthNode {
 		return head;
 	}
 	public static void main(String[] args) {
-		/*Node head1 = new Node(0);
+		Node head1 = new Node(0);
 		head1.next = new Node(-1);
 		head1.next.next = new Node(-2);
 		head1.next.next.next = new Node(3);
@@ -103,16 +102,16 @@ public class Code02_RemoveLastKthNode {
 		while(head1 != null) {
 			System.out.println(head1.val);
 			head1 = head1.next;
-		}*/
-		DoubleNode head = new DoubleNode(0);
-		head.next = new DoubleNode(-1); head.next.pre = head;
-		head.next.next = new DoubleNode(-2);head.next.next.pre = head.next;
-		head.next.next.next = new DoubleNode(3);head.next.next.next.pre = head.next.next;
-		// 删除掉倒数第4个(即表头) 
-		head = removeLastKthDoubleNode(head, 4);
-		while(head != null) {
-			System.out.println(head.val);
-			head = head.next;
 		}
+//		DoubleNode head = new DoubleNode(0);
+//		head.next = new DoubleNode(-1); head.next.pre = head;
+//		head.next.next = new DoubleNode(-2);head.next.next.pre = head.next;
+//		head.next.next.next = new DoubleNode(3);head.next.next.next.pre = head.next.next;
+//		// 删除掉倒数第4个(即表头)
+//		head = removeLastKthDoubleNode(head, 4);
+//		while(head != null) {
+//			System.out.println(head.val);
+//			head = head.next;
+//		}
 	}
 }

@@ -46,13 +46,34 @@ public class Code10_RemoveValue {
             if (cur.val == num) {
                 pre.next = cur.next;
             }else {
-                // 遍历到的不是num pre就向前
+                // 遍历到的不是num pre才向前
                 pre = cur;
             }
             cur = cur.next;
         }
         return head;
     }
+
+    public static Node removeNotUseStack(Node head, int aim) {
+        while (head != null) {
+            if (head.val != aim) {
+                break;
+            }
+            head = head.next;
+        }
+        Node cur = head;
+        Node pre = null;
+        while (cur != null) {
+            if (cur.val == aim) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         Node head = new Node(2);
         head.next = new Node(1);
@@ -61,7 +82,8 @@ public class Code10_RemoveValue {
         head.next.next.next.next = new Node(3);
         head.next.next.next.next.next = new Node(2);
 //        head = removeVal1(head,2);
-        head = removeVal2(head, 2);
+        head = removeNotUseStack(head, 2);
+//        head = removeValUseStack(head, 2);
         while (head != null) {
             System.out.println(head.val);
             head = head.next;

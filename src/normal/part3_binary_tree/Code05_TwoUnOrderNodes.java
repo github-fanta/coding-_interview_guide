@@ -3,6 +3,7 @@ package normal.part3_binary_tree;
 import java.util.Stack;
 
 /**
+ * 在搜索二叉树中有两个节点调换了位置 请返回他们
  * @Author liq
  * @Date 2020/5/27
  */
@@ -21,11 +22,13 @@ public class Code05_TwoUnOrderNodes {
                 head = head.left;
             } else {
                 head = stack.pop();
+                /////核心逻辑就是这块  其他都是二叉树的中序遍历的模板////
                 if (pre != null && pre.value > head.value) {
                     result[0] = result[0] == null ? pre : result[0];
                     result[1] = head;
                 }
                 pre = head;
+                ////////
                 head = head.right;
             }
         }

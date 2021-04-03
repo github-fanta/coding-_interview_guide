@@ -54,7 +54,7 @@ public class Code05_IsBSTAndCBT {
         boolean rightResult = true;
         if (cur.value <= min || cur.value >= max) return false;
         if (cur.left != null) leftResult = recur(cur.left, min, (long)cur.value); //左子树不应大于当前结点值
-        if (cur.right != null) rightResult = recur(cur.right, (long)cur.value, max);//右子树不应大于当前结点值
+        if (cur.right != null) rightResult = recur(cur.right, (long)cur.value, max);//右子树不应小于当前结点值
         return   leftResult && rightResult;
     }
 

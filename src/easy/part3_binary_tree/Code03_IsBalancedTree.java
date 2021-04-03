@@ -31,7 +31,47 @@ public class Code03_IsBalancedTree {
 		if (Math.abs(leftH - rightH) > 1) return -1;
 		return Math.max(leftH, rightH) + 1;
 	}
-	
+
+
+
+
+
+
+
+
+
+	/**
+	 * 判断一颗二叉树是否是平衡二叉树（二叉树中任何一个结点的左右子树高度差不超过1）
+	 * @author liq
+	 *
+	 */
+
+	public static boolean test(Node head) {
+		if (head == null ) {
+			return true;
+		}
+		return processTest(head) != -1;
+	}
+
+	private static int processTest(Node head) {
+		if (head == null) {
+			return 0;
+		}
+		int lHigh = processTest(head.left);
+		if (lHigh == -1) {
+			return -1;
+		}
+		int rHigh = processTest(head.right);
+		if (rHigh == -1) {
+			return -1;
+		}
+		if (Math.abs(lHigh - rHigh) > 1) {
+			return -1;
+		}
+		return Math.max(lHigh, rHigh) + 1;
+	}
+
+
 	public static void main(String[] args) {
 		Node head = new Node(1);
 		head.left = new Node(2);

@@ -6,6 +6,7 @@ package easy.part5_string;
  * 时间：O（N）  空间：O（1）
  */
 public class Code03_RemoveKZeros {
+
     public static String removeKZeros(String str, int k) {
         if (str == null || k < 1) {
             return str;
@@ -37,6 +38,8 @@ public class Code03_RemoveKZeros {
         }
         return String.valueOf(chars).replaceAll("#", "");
     }
+
+
 
     public static void main(String[] args) {
         System.out.println(removeKZeros("A0000B000",3));

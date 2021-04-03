@@ -31,6 +31,58 @@ public class Code08_PreInToTree {
         return head;
     }
 
+
+
+//    public static Node preInToTree(int[] pre, int preStart, int preEnd, int in, int inStart) {
+//
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 题目二：中序+后序 恢复树
     public static Node inPos(int[] in, int inStart, int inEnd, int[] pos, int posStart, int posEnd) {
         if (in == null || pos == null) {
@@ -54,6 +106,8 @@ public class Code08_PreInToTree {
     }
     public static void main(String[] args) {
         //Node head = preInToTree(new int[]{1, 2, 4, 5, 8, 9, 3, 6, 7}, 0, 8, new int[]{4, 2, 8, 5, 9, 1, 6, 3, 7}, 0, 8);
-        Node head = inPos(new int[]{4, 2, 8, 5, 9, 1, 6, 3, 7}, 0, 8, new int[]{4,8,9,5,2,6,7,3,1}, 0, 8);
+//        Node head = inPos(new int[]{4, 2, 8, 5, 9, 1, 6, 3, 7}, 0, 8, new int[]{4,8,9,5,2,6,7,3,1}, 0, 8);
+        StringBuffer stringBuffer = new StringBuffer();
+        System.out.println(stringBuffer.toString());
     }
 }

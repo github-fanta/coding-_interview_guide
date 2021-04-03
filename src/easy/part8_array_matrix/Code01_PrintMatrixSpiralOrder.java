@@ -1,5 +1,7 @@
 package easy.part8_array_matrix;
 
+import java.math.BigDecimal;
+
 /**
  * 螺旋打印矩阵
  * @author liq
@@ -55,10 +57,53 @@ public class Code01_PrintMatrixSpiralOrder {
 			}
 		}
 	}
-	
+
+	public static void printTest(int[][] matrix) {
+		int tRow = 0;
+		int tCol = 0;
+		int dRow = matrix.length - 1;
+		int dCol = matrix.length - 1;
+		while (tRow <= dRow && tCol <= dCol) {
+			printR(matrix, tRow++, dRow--, tCol++, dCol--);
+		}
+	}
+
+	private static void printR(int[][] matrix, int tRow, int dRow, int tCol, int dCol) {
+		if (tRow == dRow) {
+			for (int i = tCol; i <= dCol; i++) {
+				System.out.println(matrix[tRow][i]);
+			}
+		} else if (tCol == dCol) {
+			for (int i = tRow; i <= dRow; i++) {
+				System.out.println(matrix[i][tCol]);
+			}
+		} else {
+			int curRow = tRow;
+			int curCol = tCol;
+			while (curCol < dCol) {
+				System.out.print(matrix[tRow][curCol ++] + " ");
+			}
+			while (curRow < dRow) {
+				System.out.print(matrix[curRow ++][dCol] + " ");
+			}
+			while (curCol > tCol) {
+				System.out.print(matrix[dRow][curCol --] + " ");
+			}
+			while (curRow > tRow) {
+				System.out.print(matrix[curRow --][tCol] + " ");
+			}
+		}
+	}
+
+
 	public static void main(String[] args) {
-		int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 },
-				{ 13, 14, 15, 16 } };
-		SpiralOrderPrint(matrix);
+//		int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 },
+//				{ 13, 14, 15, 16 } };
+//		SpiralOrderPrint(matrix);
+//		System.out.println();
+//		printTest(matrix);
+
+		BigDecimal bigDecimal = new BigDecimal("0.22400000000");
+		System.out.println(bigDecimal.toString());
 	}
 }

@@ -13,7 +13,7 @@ public class Code10_PointNewChar {
         }
         char[] chs = str.toCharArray();
         int successiveUpperCharNum = 0;
-        // 统计k位置之前的 连续大写字符的个数
+        // 统计k位置之前的 连续大写字符的个数  小写字母绝对是某个新类型字符的结尾。
         for (int i = k - 1; i >= 0; i--){
             if (!isUpper(chs[i])) break;
             successiveUpperCharNum++;
@@ -32,6 +32,6 @@ public class Code10_PointNewChar {
     }
 
     public static void main(String[] args) {
-        System.out.println(pointNewChar("aaABCDEcBCg", 0));
+        System.out.println(pointNewChar("aaABCDEcBCg", 10));
     }
 }
